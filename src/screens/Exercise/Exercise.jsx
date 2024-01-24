@@ -7,7 +7,7 @@ import ExerciseImage from 'assets/images/physical_exercise.png'
 import { Column, Text, GridBox, Image, ExerciseList, ExerciseItem } from './Exercise.styled'
 
 export const Exercise = () => {
-  const { submitFn } = useContext(MainContext)
+  const { submitValues } = useContext(MainContext)
   const { title, subTitle, question, answerOptions } = exerciseData
 
   return (
@@ -18,7 +18,7 @@ export const Exercise = () => {
         <Image src={ExerciseImage} alt="exercise-image" />
         <ExerciseList>
           {answerOptions.map(({ id, option }) => (
-            <ExerciseItem onClick={() => submitFn({ exercise: option })} key={id}>
+            <ExerciseItem onClick={() => submitValues({ exercise: option })} key={id}>
               {option}
             </ExerciseItem>
           ))}

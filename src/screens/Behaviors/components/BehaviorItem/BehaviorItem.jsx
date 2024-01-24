@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import { Item, Text } from './BehaviorItem.styled'
 
-export const BehaviorItem = ({ option, icon, onItemClick, behaviors }) => {
+export const BehaviorItem = ({ option, icon: Icon, onItemClick, behaviors }) => {
   const [isActive, setActive] = useState(false)
-  const Icon = icon
 
   const includeItem = () => onItemClick([...behaviors, option])
+
   const excludeItem = () => {
     const arrayWithoutItem = behaviors.filter((item) => item !== option)
     onItemClick([...arrayWithoutItem])
@@ -17,7 +17,7 @@ export const BehaviorItem = ({ option, icon, onItemClick, behaviors }) => {
   }
 
   return (
-    <Item onClick={() => handleClick()} $active={isActive}>
+    <Item onClick={handleClick} $active={isActive}>
       <Icon />
       <Text>{option}</Text>
     </Item>

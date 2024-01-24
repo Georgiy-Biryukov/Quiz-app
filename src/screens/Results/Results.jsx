@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
+import { MainContext } from 'QuizApp'
 import { Column, Text, Pre } from './Results.styled'
 
-export const Results = ({ store }) => {
+export const Results = () => {
+  const { store } = useContext(MainContext)
   return (
     <Column>
       <Text $strong>Results</Text>

@@ -45,10 +45,10 @@ export const Form = ({ setFormValues, formValues }) => {
   return (
     <Box>
       <TabsWrap>
-        <Tab onClick={() => onImperialTabClick()} $active={isImperial && isComponentVisible}>
+        <Tab onClick={onImperialTabClick} $active={isImperial && isComponentVisible}>
           Imperial
         </Tab>
-        <Tab onClick={() => onMetricTabClick()} $active={isMetric && isComponentVisible}>
+        <Tab onClick={onMetricTabClick} $active={isMetric && isComponentVisible}>
           Metric
         </Tab>
       </TabsWrap>

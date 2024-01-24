@@ -8,7 +8,7 @@ import { measureData } from './moc-data'
 import { Box } from './Measure.styled'
 
 export const Measure = () => {
-  const { submitFn } = useContext(MainContext)
+  const { submitValues } = useContext(MainContext)
   const [formValues, setFormValues] = useState({})
   const { title, subTitle } = measureData
 
@@ -20,7 +20,7 @@ export const Measure = () => {
       <TextBlock title={title} subTitle={subTitle} />
       <Button
         text="Continue"
-        handleClick={() => submitFn({ measure: formValues })}
+        handleClick={() => submitValues({ measure: formValues })}
         disabled={isDisable}
       />
     </Box>

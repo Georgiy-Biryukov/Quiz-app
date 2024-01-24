@@ -7,7 +7,7 @@ import { behaviorsData } from './moc-data'
 import { Column, List } from './Behaviors.styled'
 
 export const Behaviors = () => {
-  const { submitFn } = useContext(MainContext)
+  const { submitValues } = useContext(MainContext)
   const [behaviors, setBehaviors] = useState([])
   const { title, subTitle, answerOptions } = behaviorsData
 
@@ -32,7 +32,7 @@ export const Behaviors = () => {
       <Button
         text="Continue"
         disabled={!behaviors.length}
-        handleClick={() => submitFn({ behaviors })}
+        handleClick={() => submitValues({ behaviors })}
       />
     </Column>
   )

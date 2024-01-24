@@ -4,9 +4,9 @@ import { MainContext } from 'QuizApp'
 import { Item, TextBox, Text, ImageBox } from './GoalItem.styled'
 
 export const GoalItem = ({ image, option }) => {
-  const { submitFn } = useContext(MainContext)
+  const { submitValues } = useContext(MainContext)
   return (
-    <Item onClick={() => submitFn({ goal: option })}>
+    <Item onClick={() => submitValues({ goal: option })}>
       <TextBox>
         <Text>{option}</Text>
       </TextBox>
