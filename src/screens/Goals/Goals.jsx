@@ -1,10 +1,10 @@
 import React, { useContext } from 'react'
 
-import { Column, Text, GoalsList } from './Goals.styled'
-import { MainContext } from '../../QuizApp'
+import { MainContext } from 'QuizApp'
 import { GoalItem } from './components/GoalItem'
-import { TextBlock } from '../../components/TextBlock'
+import { TextBlock } from 'components/TextBlock'
 import { goalsData } from './moc-data'
+import { Column, Text, GoalsList } from './Goals.styled'
 
 export const Goals = ({ store, setStore }) => {
   const { onNextStep } = useContext(MainContext)

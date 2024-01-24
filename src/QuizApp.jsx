@@ -1,11 +1,7 @@
 import React, { createContext, useState } from 'react'
 
-import { Layout } from './layout'
-import { Goals } from './screens/Goals'
-import { Behaviors } from './screens/Behaviors'
-import { Measure } from './screens/Measure'
-import { Exercise } from './screens/Exercise'
-import { Results } from './screens/Results'
+import { Goals, Behaviors, Measure, Exercise, Results } from './screens'
+import { Layout } from 'layout'
 
 export const MainContext = createContext({})
 
@@ -23,7 +19,6 @@ function QuizApp() {
   const Step = stepsComponents[step]
 
   const totalSteps = Object.entries(stepsComponents).length
-  const isFirstStep = step === 1
 
   const onNextStep = () => {
     step < totalSteps && setStep(step + 1)
@@ -35,7 +30,7 @@ function QuizApp() {
 
   return (
     <div className="QuizApp">
-      <MainContext.Provider value={{ step, onNextStep, onBackStep, isFirstStep }}>
+      <MainContext.Provider value={{ step, onNextStep, onBackStep }}>
         <Layout>
           <Step store={store} setStore={setStore} />
         </Layout>

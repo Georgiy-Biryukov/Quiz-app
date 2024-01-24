@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { colors } from '../../constants/colors'
+import { colors } from 'constants/colors'
 
 export const Column = styled.div`
   display: flex;
@@ -15,13 +15,14 @@ export const Text = styled.p`
 
 export const GridBox = styled.div`
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr 1fr;
   gap: 16px;
   align-items: center;
 `
 
 export const Image = styled.img`
   object-fit: cover;
+  max-width: 100%;
 `
 
 export const ExerciseList = styled.ul`

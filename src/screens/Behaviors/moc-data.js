@@ -1,9 +1,9 @@
-import { ReactComponent as MoonIcon } from '../../assets/icons/moon.svg'
-import { ReactComponent as CrossIcon } from '../../assets/icons/cross.svg'
-import { ReactComponent as DonutIcon } from '../../assets/icons/donut.svg'
-import { ReactComponent as PizzaIcon } from '../../assets/icons/pizza.svg'
-import { ReactComponent as SaltIcon } from '../../assets/icons/salt.svg'
-import { ReactComponent as SodaIcon } from '../../assets/icons/soda.svg'
+import { ReactComponent as MoonIcon } from 'assets/icons/moon.svg'
+import { ReactComponent as CrossIcon } from 'assets/icons/cross.svg'
+import { ReactComponent as DonutIcon } from 'assets/icons/donut.svg'
+import { ReactComponent as PizzaIcon } from 'assets/icons/pizza.svg'
+import { ReactComponent as SaltIcon } from 'assets/icons/salt.svg'
+import { ReactComponent as SodaIcon } from 'assets/icons/soda.svg'
 
 export const behaviorsData = {
     title: 'Destructive behaviors',

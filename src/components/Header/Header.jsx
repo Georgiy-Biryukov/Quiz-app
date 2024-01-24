@@ -6,11 +6,11 @@ import { ReactComponent as LeftArrowIcon } from '../../assets/icons/arrow-left.s
 import { MainContext } from '../../QuizApp'
 
 export const Header = () => {
-  const { onBackStep, isFirstStep } = useContext(MainContext)
+  const { onBackStep, step } = useContext(MainContext)
 
   return (
     <StyledHeader>
-      <Button onClick={() => onBackStep(1)} hidden={isFirstStep}>
+      <Button onClick={() => onBackStep(1)} hidden={step === 1}>
         <LeftArrowIcon />
       </Button>
       <LogoWrapper>

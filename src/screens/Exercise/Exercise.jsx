@@ -1,10 +1,10 @@
 import React, { useContext } from 'react'
 
-import { MainContext } from '../../QuizApp'
-import { TextBlock } from '../../components/TextBlock'
+import { MainContext } from 'QuizApp'
+import { TextBlock } from 'components/TextBlock'
 import { Column, Text, GridBox, Image, ExerciseList, ExerciseItem } from './Exercise.styled'
-import ExerciseImage from '../../assets/images/physical_exercise.png'
 import { exerciseData } from './moc-data'
+import ExerciseImage from 'assets/images/physical_exercise.png'
 
 export const Exercise = ({ store, setStore }) => {
   const { onNextStep } = useContext(MainContext)

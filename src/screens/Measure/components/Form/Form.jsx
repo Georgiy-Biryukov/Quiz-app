@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 
 import { Box, TabsWrap, Tab, Input, StyledForm } from './Form.styled'
-import { useComponentVisible } from '../../../../utils/hooks/useComponentVisible'
-import { colors } from '../../../../constants/colors'
+import { useComponentVisible } from 'utils/hooks/useComponentVisible'
+import { colors } from 'constants/colors'
 
 export const Form = ({ setFormValues, formValues }) => {
   const [isImperial, seIsImperial] = useState(false)

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { colors } from '../../constants/colors'
+import { colors } from 'constants/colors'
 
 export const Column = styled.div`
   display: flex;
@@ -7,7 +7,7 @@ export const Column = styled.div`
 `
 
 export const Pre = styled.pre`
-  font-size: 24px;
+  font-size: min(5vw, 24px);
   color: ${colors.grey};
 `
 
