@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { Item, Text } from './BehaviorItem.styled'
-import { colors } from 'constants/colors'
 
 export const BehaviorItem = ({ option, icon, onItemClick, behaviors }) => {
   const [isActive, setActive] = useState(false)
@@ -18,10 +17,7 @@ export const BehaviorItem = ({ option, icon, onItemClick, behaviors }) => {
   }
 
   return (
-    <Item
-      onClick={() => handleClick()}
-      style={{ borderColor: isActive ? colors.green : colors.lightGrey }}
-    >
+    <Item onClick={() => handleClick()} $active={isActive}>
       <Icon />
       <Text>{option}</Text>
     </Item>

@@ -1,18 +1,12 @@
-import React, { useContext } from 'react'
+import React from 'react'
 
-import { MainContext } from 'QuizApp'
 import { GoalItem } from './components/GoalItem'
 import { TextBlock } from 'components/TextBlock'
 import { goalsData } from './moc-data'
 import { Column, Text, GoalsList } from './Goals.styled'
 
-export const Goals = ({ store, setStore }) => {
-  const { onNextStep } = useContext(MainContext)
+export const Goals = () => {
   const { title, subTitle, question, answerOptions } = goalsData
-
-  const submitFn = (option) => {
-    setStore({ ...store, goals: option }, onNextStep())
-  }
 
   return (
     <Column>
@@ -20,7 +14,7 @@ export const Goals = ({ store, setStore }) => {
       <Text $strong>{question}</Text>
       <GoalsList>
         {answerOptions.map(({ image, option, id }) => (
-          <GoalItem image={image} option={option} key={id} handleClick={submitFn} />
+          <GoalItem image={image} option={option} key={id} />
         ))}
       </GoalsList>
     </Column>

@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
+
+import { MainContext } from 'QuizApp'
 import { Item, TextBox, Text, ImageBox } from './GoalItem.styled'
 
-export const GoalItem = ({ image, option, handleClick }) => {
+export const GoalItem = ({ image, option }) => {
+  const { submitFn } = useContext(MainContext)
   return (
-    <Item onClick={() => handleClick(option)}>
+    <Item onClick={() => submitFn({ goal: option })}>
       <TextBox>
         <Text>{option}</Text>
       </TextBox>

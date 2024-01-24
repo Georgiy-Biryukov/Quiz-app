@@ -8,6 +8,7 @@ export const Column = styled.div`
 
 export const Pre = styled.pre`
   font-size: min(5vw, 24px);
+  white-space: pre-line;
   color: ${colors.grey};
 `
 

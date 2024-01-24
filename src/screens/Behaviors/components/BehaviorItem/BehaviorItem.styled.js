@@ -10,7 +10,7 @@ export const Item = styled.li`
   gap: 10px;
   cursor: pointer;
   border: 1px solid;
-  border-color: ${({ active }) => (active ? `${colors.green}` : `${colors.lightGrey}`)};
+  border-color: ${({ $active }) => ($active ? `${colors.green}` : `${colors.lightGrey}`)};
 `
 
 export const Text = styled.p`

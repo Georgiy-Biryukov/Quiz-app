@@ -28,9 +28,14 @@ function QuizApp() {
     step > 1 && setStep(step - 1)
   }
 
+  const submitFn = (options) => {
+    setStore({ ...store, ...options })
+    onNextStep()
+  }
+
   return (
     <div className="QuizApp">
-      <MainContext.Provider value={{ step, onNextStep, onBackStep }}>
+      <MainContext.Provider value={{ step, onNextStep, onBackStep, submitFn }}>
         <Layout>
           <Step store={store} setStore={setStore} />
         </Layout>

@@ -1,13 +1,12 @@
 import React, { useState } from 'react'
 
-import { Box, TabsWrap, Tab, Input, StyledForm } from './Form.styled'
 import { useComponentVisible } from 'utils/hooks/useComponentVisible'
-import { colors } from 'constants/colors'
+import { Box, TabsWrap, Tab, Input, StyledForm } from './Form.styled'
 
 export const Form = ({ setFormValues, formValues }) => {
+  const { ref, isComponentVisible, setIsComponentVisible } = useComponentVisible(false)
   const [isImperial, seIsImperial] = useState(false)
   const [isMetric, setIsMetric] = useState(false)
-  const { ref, isComponentVisible, setIsComponentVisible } = useComponentVisible(false)
 
   const heightMeasure = isImperial ? 'ft' : 'm'
   const weightMeasure = isImperial ? 'ft' : 'kg'
@@ -17,16 +16,20 @@ export const Form = ({ setFormValues, formValues }) => {
   }
 
   const onImperialTabClick = () => {
-    isMetric && clearInputValue()
-    isMetric && setFormValues({})
+    if (isMetric) {
+      clearInputValue()
+      setFormValues({})
+    }
     seIsImperial(true)
     setIsMetric(false)
     setIsComponentVisible(!isComponentVisible)
   }
 
   const onMetricTabClick = () => {
-    isImperial && clearInputValue()
-    isImperial && setFormValues({})
+    if (isImperial) {
+      clearInputValue()
+      setFormValues({})
+    }
     seIsImperial(false)
     setIsMetric(true)
     setIsComponentVisible(!isComponentVisible)
@@ -42,20 +45,10 @@ export const Form = ({ setFormValues, formValues }) => {
   return (
     <Box>
       <TabsWrap>
-        <Tab
-          onClick={() => onImperialTabClick()}
-          style={{
-            background: isImperial && isComponentVisible && colors.semiTransparentGreen,
-          }}
-        >
+        <Tab onClick={() => onImperialTabClick()} $active={isImperial && isComponentVisible}>
           Imperial
         </Tab>
-        <Tab
-          onClick={() => onMetricTabClick()}
-          style={{
-            background: isMetric && isComponentVisible && colors.semiTransparentGreen,
-          }}
-        >
+        <Tab onClick={() => onMetricTabClick()} $active={isMetric && isComponentVisible}>
           Metric
         </Tab>
       </TabsWrap>
@@ -63,7 +56,7 @@ export const Form = ({ setFormValues, formValues }) => {
         <Input
           type="number"
           placeholder={isImperial ? `Height(${heightMeasure})` : `Height(${heightMeasure})`}
-          style={{ visibility: !isComponentVisible ? 'hidden' : 'visible' }}
+          $visible={isComponentVisible}
           onBlur={({ target }) => handleBlur({ height: target.value + heightMeasure })}
         />
         <Input
@@ -71,7 +64,7 @@ export const Form = ({ setFormValues, formValues }) => {
           placeholder={
             isImperial ? `Current Weight(${weightMeasure})` : `Current Weight(${weightMeasure})`
           }
-          style={{ visibility: !isComponentVisible ? 'hidden' : 'visible' }}
+          $visible={isComponentVisible}
           onBlur={({ target }) => handleBlur({ weight: target.value + weightMeasure })}
         />
       </StyledForm>

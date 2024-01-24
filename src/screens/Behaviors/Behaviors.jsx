@@ -2,19 +2,14 @@ import React, { useContext, useState } from 'react'
 
 import { MainContext } from 'QuizApp'
 import { Button, TextBlock } from 'components'
-import { Column, List } from './Behaviors.styled'
 import { BehaviorItem } from './components/BehaviorItem'
 import { behaviorsData } from './moc-data'
+import { Column, List } from './Behaviors.styled'
 
-export const Behaviors = ({ store, setStore }) => {
+export const Behaviors = () => {
+  const { submitFn } = useContext(MainContext)
   const [behaviors, setBehaviors] = useState([])
-  const { onNextStep } = useContext(MainContext)
   const { title, subTitle, answerOptions } = behaviorsData
-
-  const submitFn = () => {
-    onNextStep()
-    setStore({ ...store, behaviors })
-  }
 
   const onItemClick = (option) => {
     setBehaviors(option)
@@ -34,7 +29,11 @@ export const Behaviors = ({ store, setStore }) => {
           />
         ))}
       </List>
-      <Button text="Continue" disabled={!behaviors.length} handleClick={submitFn} />
+      <Button
+        text="Continue"
+        disabled={!behaviors.length}
+        handleClick={() => submitFn({ behaviors })}
+      />
     </Column>
   )
 }

@@ -26,6 +26,7 @@ export const Tab = styled.button`
   letter-spacing: 2.5px;
   cursor: pointer;
   background: none;
+  background: ${({ $active }) => ($active && colors.semiTransparentGreen)};
 
   &:hover {
     background: ${colors.semiTransparentGreen};
@@ -51,6 +52,7 @@ export const Input = styled.input`
   line-height: 1.6;
   letter-spacing: 0.25px;
   outline: none;
+  visibility: ${({ $visible }) => ($visible ? 'visible' : 'hidden')};
 
   &::placeholder {
     color: ${colors.dark};
